@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mongo DB</title>
+    <script src="scripts/script.js"></script>
+  </head>
+  <body
+    style="
+      font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    "
+  >
+    <nav>
+      <a href="/index.html">All Songs</a>
+      <a href="/add_song.html">Add Songs</a>
+      <a href="/edit.html">Edit Songs</a>
+    </nav>
+    <div style="display: flex; justify-content: center; padding-top: 40px">
+      <div
+        id="songs"
+        style="
+          background: #ffffff;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 500px;
+        "
+      >
+        <h2
+          style="
+            margin-top: 0;
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+          "
+        >
+          Song Library
+        </h2>
+
+        <p style="text-align: center; color: #888; font-style: italic">
+          Fetching songs from MongoDB...
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

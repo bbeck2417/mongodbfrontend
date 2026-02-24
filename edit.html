@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mongo DB</title>
+    <script src="scripts/edit.js"></script>
+  </head>
+  <body
+    style="
+      font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    "
+  >
+    <nav>
+      <a href="/index.html">All Songs</a>
+      <a href="/add_song.html">Add Songs</a>
+      <a href="/edit.html">Edit Songs</a>
+    </nav>
+    <form action="/songs" method="POST">
+      <div>
+        <label for="songId">ID:</label>
+        <input type="text" id="songId" />
+      </div>
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" />
+      </div>
+      <div>
+        <label for="artist">Artist:</label>
+        <input type="text" id="artist" />
+      </div>
+      <div>
+        <label for="release">Released:</label>
+        <input type="date" id="released" />
+      </div>
+      <div>
+        <label for="popularity">Popularity:</label>
+        <input type="number" id="popularity" />
+      </div>
+      <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" />
+      </div>
+      <div>
+        <input type="button" id="updateBtn" value="Update Song" />
+      </div>
+      <div id="error"></div>
+    </form>
+  </body>
+</html>

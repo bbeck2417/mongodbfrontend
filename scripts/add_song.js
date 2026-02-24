@@ -16,7 +16,7 @@ async function addSong() {
       : [],
   };
 
-  const response = await fetch("http://localhost:3100/api/songs", {
+  const response = await fetch("https://mongodbbackend-evmy.onrender.com/api/songs", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

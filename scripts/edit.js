@@ -5,7 +5,7 @@ addEventListener("DOMContentLoaded", async () => {
   const urlparam = new URLSearchParams(window.location.search);
   const songID = urlparam.get("id");
 
-  const response = await fetch("http://localhost:3100/api/songs/" + songID);
+  const response = await fetch("https://mongodbbackend-evmy.onrender.com/api/songs/" + songID);
 
   if (response.ok) {
     let song = await response.json();

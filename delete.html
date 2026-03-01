@@ -1,0 +1,20 @@
+<!-- delete.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="scripts/delete.js"></script>
+    <title>Delete Song</title>
+  </head>
+  <body>
+    <h1>Delete a Song</h1>
+    <form action="/delete" method="post">
+      <label for="songs">Select a song:</label>
+      <select name="song_id" id="songs">
+        <!-- Songs will be populated dynamically -->
+      </select>
+      <button type="button" id="deleteBtn">Delete</button>
+    </form>
+  </body>
+</html>

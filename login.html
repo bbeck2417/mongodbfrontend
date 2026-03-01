@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Mongo DB</title>
+    <script src="scripts/login.js" defer></script>
+</head>
+<body style="font-family: system-ui, sans-serif; padding: 20px;">
+    <h1>Login</h1>
+    <form id="loginForm">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <div id="error" style="color: red;"></div>
+</body>
+</html>

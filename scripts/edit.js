@@ -13,24 +13,37 @@ addEventListener("DOMContentLoaded", async () => {
   const urlparam = new URLSearchParams(window.location.search);
   const songID = urlparam.get("id");
 
-  const response = await fetch(
-      `${getBaseUrl()}/songs/${songID}`,
-    {
-      headers: { Authorization: `Bearer ${token}` },
-    },
-  );
+  // If there's no ID, we can't fetch anything
+  if (!songID) {
+    document.querySelector("#error").innerHTML =
+      "No song selected for editing.";
+    return;
+  }
+
+  const response = await fetch(`${getBaseUrl()}/songs/${songID}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 
   if (response.ok) {
     let song = await response.json();
     document.querySelector("#songId").value = song._id;
     document.querySelector("#title").value = song.title;
     document.querySelector("#artist").value = song.artist;
-    document.querySelector("#release").value = song.releaseDate.substring(
-      0,
-      10,
-    );
+
+    
+    if (song.releaseDate) {
+      document.querySelector("#release").value = song.releaseDate.substring(
+        0,
+        10,
+      );
+    }
+
     document.querySelector("#popularity").value = song.popularity;
-    document.querySelector("#genre").value = song.genre;
+    document.querySelector("#genre").value = song.genre
+      ? song.genre.join(", ")
+      : "";
+  } else {
+    document.querySelector("#error").innerHTML = "Could not load song details.";
   }
 });
 

@@ -79,10 +79,15 @@ async function getAllSongs() {
 
     if (response.ok) {
       const songs = await response.json();
+      const urlparam = new URLSearchParams(window.location.search);
+      const selectedID = urlparam.get("id"); // Get the ID from the URL
+
       const html = songs
         .map(
           (song) =>
-            `<option value="${song._id}">${song.title} by ${song.artist}</option>`,
+            `<option value="${song._id}" ${song._id === selectedID ? "selected" : ""}>
+          ${song.title} by ${song.artist}
+        </option>`,
         )
         .join("");
 

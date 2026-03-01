@@ -25,13 +25,12 @@ addEventListener("DOMContentLoaded", async () => {
   let html = ``;
   for (let song of songs) {
     let songID = song._id;
-    // Added the Delete link below
     html += `<li>
-      ${song.title} - ${song.artist} - 
-      <a href="details.html?id=${songID}">Details</a> - 
-      <a href="edit.html?id=${songID}">Edit Song</a> - 
-      <a href="delete.html">Delete Page</a>
-    </li>`;
+    ${song.title} - ${song.artist} - 
+    <a href="details.html?id=${songID}">Details</a> - 
+    <a href="edit.html?id=${songID}">Edit Song</a> - 
+    <a href="delete.html?id=${songID}" style="color: red;">Delete</a>
+  </li>`;
   }
   document.querySelector("#songs").innerHTML = html;
 });

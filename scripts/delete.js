@@ -1,3 +1,9 @@
+const getBaseUrl = () => {
+  return window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+    ? "http://localhost:3100/api"
+    : "https://mongodbbackend-evmy.onrender.com/api";
+};
 async function deleteSong() {
   const token = localStorage.getItem("token"); // Retrieve the stored token
   const dropdown = document.querySelector("#songs");
@@ -16,7 +22,7 @@ async function deleteSong() {
 
   try {
     const response = await fetch(
-      `https://mongodbbackend-evmy.onrender.com/api/songs/${id}`,
+      `${getBaseUrl()}/songs/${id}`,
       {
         method: "DELETE",
         headers: {
@@ -63,7 +69,7 @@ async function getAllSongs() {
 
   try {
     const response = await fetch(
-      "https://mongodbbackend-evmy.onrender.com/api/songs",
+      `${getBaseUrl()}/songs`,
       {
         headers: {
           Authorization: `Bearer ${token}`, // Authorized GET request

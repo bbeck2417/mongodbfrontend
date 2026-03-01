@@ -1,3 +1,9 @@
+const getBaseUrl = () => {
+  return window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+    ? "http://localhost:3100/api"
+    : "https://mongodbbackend-evmy.onrender.com/api";
+};
 addEventListener("DOMContentLoaded", async () => {
   const token = localStorage.getItem("token");
   if (!token) window.location.href = "login.html";
@@ -8,7 +14,7 @@ addEventListener("DOMContentLoaded", async () => {
   const songID = urlparam.get("id");
 
   const response = await fetch(
-    "https://mongodbbackend-evmy.onrender.com/api/songs/" + songID,
+      `${getBaseUrl()}/songs/${songID}`,
     {
       headers: { Authorization: `Bearer ${token}` },
     },
@@ -42,7 +48,7 @@ async function updateSong() {
   };
 
   const response = await fetch(
-    `https://mongodbbackend-evmy.onrender.com/api/songs/${songId}`,
+    `${getBaseUrl()}/songs/${songId}`,
     {
       method: "PUT",
       headers: {

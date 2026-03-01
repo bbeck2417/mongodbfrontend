@@ -1,14 +1,18 @@
+const getBaseUrl = () => {
+  return window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+    ? "http://localhost:3100/api"
+    : "https://mongodbbackend-evmy.onrender.com/api";
+};
 addEventListener("DOMContentLoaded", async () => {
-
   const token = localStorage.getItem("token");
   if (!token) {
     window.location.href = "login.html";
     return;
   }
 
-
   const response = await fetch(
-    "https://mongodbbackend-evmy.onrender.com/api/songs",
+    `${getBaseUrl()}/songs`,
     {
       headers: { Authorization: `Bearer ${token}` },
     },
